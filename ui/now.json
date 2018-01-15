@@ -1,0 +1,10 @@
+{
+  "name": "my-app-ui",
+  "alias": "my-app-ui",
+  "env": {
+    "NODE_ENV": "production",
+
+    "MY_APP_UI_PORT": "3000",
+    "MY_APP_API_URL": "https://my-app.now.sh/api"
+  }
+}

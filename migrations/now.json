@@ -1,0 +1,14 @@
+{
+  "name": "my-app-migrations",
+  "env": {
+    "RAMBLER_DRIVER": "postgresql",
+    "RAMBLER_PROTOCOL": "tcp",
+    "RAMBLER_HOST": "@my_app_migrations_rambler_host_production",
+    "RAMBLER_PORT": "5432",
+    "RAMBLER_USER": "@my_app_migrations_rambler_user_production",
+    "RAMBLER_PASSWORD": "@my_app_migrations_rambler_password_production",
+    "RAMBLER_DATABASE": "@my_app_migrations_rambler_database_production",
+    "RAMBLER_DIRECTORY": "migrations",
+    "RAMBLER_TABLE": "migrations"
+  }
+}

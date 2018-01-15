@@ -1,0 +1,18 @@
+{
+  "name": "my-app-api",
+  "alias": "my-app-api",
+  "type": "docker",
+  "env": {
+    "NODE_ENV": "production",
+
+    "MY_APP_API_PORT": 3001,
+    "MY_APP_API_PGRST_PORT": 3002,
+    "MY_APP_API_MOUNT_PATH": "/api",
+
+    "MY_APP_API_SESSION_SECRET": "@my_app_api_session_secret_production",
+    "MY_APP_PG_URL": "@my_app_pg_url_production",
+    "MY_APP_PG_SERVER_CA_BASE64": "@my_app_pg_server_ca_base64_production",
+    "MY_APP_PG_CLIENT_KEY_BASE64": "@my_app_pg_client_key_base64_production",
+    "MY_APP_PG_CLIENT_CERT_BASE64": "@my_app_pg_client_cert_base64_production"
+  }
+}

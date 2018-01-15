@@ -1,0 +1,6 @@
+{
+  "rules": [
+    { "pathname": "/api/**", "dest": "my-app-api.now.sh" },
+    { "dest": "my-app-ui.now.sh" }
+  ]
+}

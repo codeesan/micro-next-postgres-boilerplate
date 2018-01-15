@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+    working_directory: /app
+    docker:
+      - image: node:9
+        environment:
+          MY_APP_MIGRATIONS_RAMBLER_HOST: localhost
+          MY_APP_MIGRATIONS_RAMBLER_USER: postgres
+          MY_APP_MIGRATIONS_RAMBLER_PASSWORD: password
+          MY_APP_MIGRATIONS_RAMBLER_DATABASE: my_app
+
+          MY_APP_API_PORT: 3001
+          MY_APP_API_PGRST_PORT: 3002
+          MY_APP_API_MOUNT_PATH: ""
+
+          MY_APP_API_SESSION_SECRET: "asdf"
+          MY_APP_PG_URL: postgres://postgres:password@localhost:5432/my_app
+
+          MY_APP_UI_PORT: 3000
+          MY_APP_API_URL: http://localhost:3001
+
+      - image: circleci/postgres:9.6-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: my_app
+          POSTGRES_PASSWORD: "password"
+
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: cd migrations &&	curl -s -L -o ./rambler "https://github.com/elwinar/rambler/releases/download/4.0.0/rambler-linux-amd64" && chmod +x ./rambler && ./rambler apply -a
+      - run: npm i -g --unsafe-perm now
+      - run: ./deploy-all.sh

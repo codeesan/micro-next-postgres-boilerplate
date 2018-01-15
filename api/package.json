@@ -1,0 +1,58 @@
+{
+  "name": "my-app-api",
+  "description": "",
+  "repository": "",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "test": "jest --forceExit",
+    "dev": "micro-dev -p 3001 src/index.js",
+    "start": "micro -p 3001 src/index.js",
+    "prettier": "find . -name \"*.js\" | grep -v -f ../.gitignore | xargs prettier-standard",
+    "lint": "eslint --ignore-path ../.gitignore '**/*.js'"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "cookie": "^0.3.1",
+    "dotenv": "^4.0.0",
+    "fs-extra": "^5.0.0",
+    "micro": "^9.0.2",
+    "micro-compose": "0.0.3",
+    "micro-compress": "^1.0.0",
+    "micro-cors": "^0.1.0",
+    "node-fetch": "^1.7.3",
+    "pg": "^7.4.1",
+    "randomstring": "^1.1.5",
+    "validator": "^9.2.0",
+    "winston": "^2.4.0"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.9.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.2.3",
+    "micro-dev": "^2.1.0",
+    "prettier-standard": "^7.0.1",
+    "test-listen": "^1.1.0"
+  },
+  "lint-staged": {
+    "gitDir": "../",
+    "linters": {
+      "svc-auth/**/*.js": [
+        "prettier",
+        "lint",
+        "git add"
+      ]
+    }
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./testSetup.js"
+  }
+}
